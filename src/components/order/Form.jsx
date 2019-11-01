@@ -1,7 +1,8 @@
 /* Core imports */
 import React, { Component } from 'react';
-/* CSS imports so that it can be used with order */
+/* CSS imports  */
 import './Form.css';
+// components imports
 import InfoFieldset from './fieldsets/info.jsx'
 import QuantityFieldset from './fieldsets/quantity.jsx'
 // import Summary from './Summary.jsx'
@@ -13,6 +14,8 @@ class Orderform extends React.Component {
       /* Form options */
       lastName: '',
       firstName: '',
+      phoneNum: '',
+      country: '',
       email: '',
       address: '',
       numCopies1: 0,
@@ -21,15 +24,16 @@ class Orderform extends React.Component {
       numCopies4: 0,
       numCopies5: 0,
       /* Model used for navigation between fieldsets */
-      navStep: 0,
+      submitted: false,
     }
+    //functions need to be binded to pass into child component
     this.updateForm = this.updateForm.bind(this);
   }
 
   /* Function to navigate between form fieldsets
-   Check components/order/fieldsets for a list of available fieldsets */
-  navigate = (to) => {
-    this.setState({navStep: to})
+   false means not submitted, true means submitted */
+  navigate = () => {
+    this.setState({submitted: true})
   }
 
   /* Function to add basic validation before displaying summary */
@@ -40,16 +44,16 @@ class Orderform extends React.Component {
       alert("All fields are mandatory. No fields can be empty.")
       return false
     } else {
-      this.navigate(1)
+      this.navigate()
     }
   }
 
-  /* Function that updates a given form input value to the corresponding model */
+  /* Function that updates a given form input value to the corresponding form options */
   updateForm = (event) => {
     const target = event.target;
     const value = target.value;
+    console.log(target.value)
     const name = target.name;
-
     this.setState({
       [name]: value
     });
@@ -58,7 +62,7 @@ class Orderform extends React.Component {
   render() {
     return (
       <form id="order">
-        {this.state.navStep === 0 &&
+        {this.state.submitted === false &&
           <div>
             <InfoFieldset updateForm={this.updateForm}></InfoFieldset>
             <QuantityFieldset validateForm={this.validateForm} updateForm={this.updateForm}></QuantityFieldset>

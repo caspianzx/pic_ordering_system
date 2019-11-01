@@ -1,8 +1,8 @@
 /* Core imports */
 import React, { Component } from 'react';
-/* Component imports */
+// import css
 import './Home.css';
-// import 'bootstrap/dist/css/bootstrap.css';
+/* Component imports */
 import Navbar from './components/navigation/Navbar.jsx'
 import { Link } from 'react-router-dom'
 

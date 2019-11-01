@@ -4,6 +4,8 @@ body, #root, #app{
   min-width: 100%;
 }
 
+/*bg image*/
+
 #app{
   position: relative;
   background: url('./assets/images/home.jpg') no-repeat;
@@ -11,16 +13,25 @@ body, #root, #app{
   background-size: cover;
 }
 
+/*centralise main header*/
+
 h1#main{
+	position: relative;
   color: white;
+  font-size: 60px;
   text-align: center;
-  margin-top: 5rem;
-  margin-left: -80px; /* compensate for image offset */
-  text-shadow: 1px 1px 1px #000
+  top: 50px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-shadow: 2px 2px 2px #000
 }
 
+/*centralise order button*/
 a#order{
   position: absolute;
-  top: 65%;
-  left: 42%;
+  display: inline-block;
+ 	margin: 0 auto;
+ 	top: 60%;
+ 	left: 50%;
+ 	transform: translateX(-50%);
 }
