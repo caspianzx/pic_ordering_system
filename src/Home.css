@@ -1,0 +1,26 @@
+body, #root, #app{
+  height: 100%;
+  min-height: 100vh;
+  min-width: 100%;
+}
+
+#app{
+  position: relative;
+  background: url('./assets/images/home.jpg') no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+
+h1#main{
+  color: white;
+  text-align: center;
+  margin-top: 5rem;
+  margin-left: -80px; /* compensate for image offset */
+  text-shadow: 1px 1px 1px #000
+}
+
+a#order{
+  position: absolute;
+  top: 65%;
+  left: 42%;
+}
