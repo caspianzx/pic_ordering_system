@@ -32,7 +32,7 @@ class InfoFieldset extends React.Component {
                     <input onChange={this.props.updateForm} type="email" className="form-control" name="email" id="email" placeholder="Eg. caspianzx@gmail.com"/>
                 </div>
                 <div className="form-group">
-                    <label htmlFor="address">Address</label>
+                    <label htmlFor="address">Postal Address</label>
                     <input onChange={this.props.updateForm} type="text" className="form-control" name="address" id="address" placeholder="Eg. Orchard Central"/>
                 </div>
             </fieldset>

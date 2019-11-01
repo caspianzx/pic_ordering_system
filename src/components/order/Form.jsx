@@ -5,7 +5,7 @@ import './Form.css';
 // components imports
 import InfoFieldset from './fieldsets/info.jsx'
 import QuantityFieldset from './fieldsets/quantity.jsx'
-// import Summary from './Summary.jsx'
+import Summary from './Summary.jsx'
 
 class Orderform extends React.Component {
     constructor(props) {
@@ -28,23 +28,30 @@ class Orderform extends React.Component {
         }
     //functions need to be binded to pass into child component
     this.updateForm = this.updateForm.bind(this);
+
     }
 
     /* Function to navigate between form fieldsets
    false means not submitted, true means submitted */
-    navigate = () => {
-        this.setState({submitted: true})
-    }
+    // navigate = () => {
+    //     this.setState({submitted: true})
+    // }
 
     /* Function to add basic validation before displaying summary */
     validateForm = (event) => {
-        var inputs =  Array.from(document.getElementsByTagName('input'))
-        var emptyInputs = inputs.filter(x => x.value.trim() === '')
-        if (emptyInputs.length > 0) {
-      alert("All fields are mandatory. No fields can be empty.")
-        return false
-        } else {
-            this.navigate()
+        //storing value of this.state object as an array
+        const value = Object.values(this.state);
+        //loop through array and search for empty strings
+        console.log(value)
+        for(let i=0; i < value.length ; i++) {
+            //if fields are empty, give user a message
+            if (value[i] === "") {
+                this.setState({submitted: false})
+                return (alert("all fields are mandatory!"));
+            //if photos are empty, give user a message
+            }else {
+                this.setState({submitted: true})
+            }
         }
     }
 
@@ -52,8 +59,8 @@ class Orderform extends React.Component {
     updateForm = (event) => {
         const target = event.target;
         const value = target.value;
-        console.log(target.name)
         const name = target.name;
+        console.log(target.value)
         this.setState({[name]: value});
     }
 
@@ -66,15 +73,15 @@ class Orderform extends React.Component {
                     <QuantityFieldset validateForm={this.validateForm} updateForm={this.updateForm}></QuantityFieldset>
                 </div>
              </form>
-            )
+            );
         } else if (this.state.submitted === true) {
             return (
                 <form id="order">
                     <div>
-                    {/*<Summary state={this.state}></Summary>*/}
+                        <Summary state={this.state}></Summary>
                     </div>
                 </form>
-            )
+            );
         }
     }
 }

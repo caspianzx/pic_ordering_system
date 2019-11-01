@@ -6,15 +6,15 @@ import './Order.css';
 import Navbar from './components/navigation/Navbar.jsx'
 import Form from './components/order/Form.jsx'
 
-class Home extends React.Component {
-  render() {
-    return (
-      <div id="app">
-        <Navbar></Navbar>
-        <Form></Form>
-      </div>
-    );
-  }
+class Order extends React.Component {
+    render() {
+        return (
+            <div id="app">
+                <Navbar></Navbar>
+                <Form></Form>
+            </div>
+        );
+    }
 }
 
-export default Home;
+export default Order;

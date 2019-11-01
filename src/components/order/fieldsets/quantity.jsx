@@ -1,14 +1,14 @@
 /* Core imports */
 import React, { Component } from 'react';
 
-class QuantityFieldset extends Component {
+class QuantityFieldset extends React.Component {
 
 
     render () {
         //using .map function to create multiple options
         const copies = [0,1,2,3,4,5,6,7,8,9,10];
         const options = copies.map(i => {
-            return <option>{i}</option>
+            return <option>{parseInt(i)}</option>
         })
 
         return (
@@ -44,8 +44,8 @@ class QuantityFieldset extends Component {
                         {options}
                      </select>
                 </div>
-            <button onClick={(event)=> this.props.validateForm(event)} type="button" className="btn btn-success">Add To Cart</button>
-          </fieldset>
+                <button onClick={(event)=> this.props.validateForm(event)} type="button" className="btn btn-success">Add To Cart</button>
+            </fieldset>
         );
     }
 }
