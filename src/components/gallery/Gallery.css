@@ -1,0 +1,45 @@
+.galleryForm {
+	display: block;
+	position: absolute;
+	margin: auto;
+	color: black;
+	min-width: 550px;
+	height: 450px;
+	background-color: white;
+	border-radius:  6px;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 18%;
+}
+
+#galleryimg {
+	display: block;
+	position: relative;
+	height: 300px;
+	width: 450px;
+	object-fit: cover;
+	margin: 0 auto;
+	margin-top: 45px;
+}
+
+#selectNo {
+	position: block;
+	width: 200px;
+	margin: 0 auto;
+	margin-top: 10px;
+	text-align: center;
+}
+
+.left {
+	display: inline;
+	position: absolute;
+	left: 10%;
+	bottom: 7%;
+}
+
+.right {
+	display: inline;
+	position: absolute;
+	right: 10%;
+	bottom: 7%;
+}
